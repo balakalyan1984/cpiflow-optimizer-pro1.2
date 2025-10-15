@@ -3,7 +3,7 @@ kind: WorkflowTemplate
 metadata:
   name: cpiflow-training-pipeline
   annotations:
-    scenarios.ai.sap.com/name: "CPIFLOW OptimizerV2"
+    scenarios.ai.sap.com/name: "CPIFLOW Optimizer"
     scenarios.ai.sap.com/description: "Train CPI log classifier"
     executables.ai.sap.com/name: "cpiflow-model-training"
     executables.ai.sap.com/description: "Produces single model.pkl for serving"
@@ -67,4 +67,5 @@ spec:
           limits:
             cpu: "1"
             memory: "1Gi"
+
 
