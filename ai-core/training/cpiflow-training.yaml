@@ -11,7 +11,7 @@ metadata:
     artifacts.ai.sap.com/cpiflowmodel.kind: "model"
   labels:
     scenarios.ai.sap.com/id: "cpiflow-optimizer-pro"
-    ai.sap.com/version: "9.2"
+    ai.sap.com/version: "9.3"   # bump to force resync
 spec:
   entrypoint: mypipeline
   arguments:
@@ -36,6 +36,7 @@ spec:
             archive: { none: {} }
       container:
         image: docker.io/balakalyandocker/cpiflow-train:py312-v1
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh","-c"]
         env:
           - name: TARGET_COLUMN
@@ -60,5 +61,9 @@ spec:
             python /app/src/train_cpi_pipeline.py;
             [ -f /app/model/model.pkl ] || { echo "ERROR: model.pkl missing"; exit 2; };
         resources:
-          requests: { cpu: "100m", memory: "256Mi" }
-          limits:   { cpu: "1",    memory: "1Gi" }
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "1"
+            memory: "1Gi"
