@@ -3,7 +3,7 @@ kind: ServingTemplate
 metadata:
   name: cpiflow-serving-pipeline
   annotations:
-    scenarios.ai.sap.com/name: "CPIFLOW Optimizer PROV2"
+    scenarios.ai.sap.com/name: "CPIFLOW Optimizer PRO"
     scenarios.ai.sap.com/description: "Serving CPIFLOW classifier via KServe"
     executables.ai.sap.com/name: "cpiflow-model-serving"
     executables.ai.sap.com/description: "FastAPI server for CPIFLOW classifier"
@@ -72,4 +72,5 @@ spec:
             tcpSocket: { port: 8080 }
             initialDelaySeconds: 10
             periodSeconds: 10
+
 
